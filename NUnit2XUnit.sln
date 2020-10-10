@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnit2XUnit", "NUnit2XUnit\NUnit2XUnit.csproj", "{8120E9A5-FDDD-47DA-B8E9-E22C6CF2A7AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnit2XUnit.Tests", "NUnit2XUnit.Tests\NUnit2XUnit.Tests.csproj", "{FD2A6399-8D7C-477E-90E5-7E205BCC64EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EBCF9DD9-AACE-4BB1-AA3B-501591186D7D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		common.props = common.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8120E9A5-FDDD-47DA-B8E9-E22C6CF2A7AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8120E9A5-FDDD-47DA-B8E9-E22C6CF2A7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8120E9A5-FDDD-47DA-B8E9-E22C6CF2A7AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8120E9A5-FDDD-47DA-B8E9-E22C6CF2A7AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD2A6399-8D7C-477E-90E5-7E205BCC64EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD2A6399-8D7C-477E-90E5-7E205BCC64EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD2A6399-8D7C-477E-90E5-7E205BCC64EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD2A6399-8D7C-477E-90E5-7E205BCC64EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF08F6E7-B365-4C57-B9F3-4C38EC64030B}
+	EndGlobalSection
+EndGlobal

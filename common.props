@@ -1,0 +1,16 @@
+<Project>
+    <PropertyGroup>
+        <RootNamespace>NUnit2XUnit</RootNamespace>
+        <Authors>Serhii Kuzmychov</Authors>
+        <Company>PE Kuzmychov S.V.</Company>
+        <RepositoryUrl>https://github.com/ku3mich/NUnit2XUnit</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="SonarAnalyzer.CSharp" Version="8.6.0.16497">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.7.0" />
+    </ItemGroup>
+</Project>
