@@ -1,8 +1,8 @@
 ﻿// Copyright (C) 2020 Serhii Kuzmychov (ku3mich@gmail.com).
-// Copyright (C) 2019 Dmitry Yakimenko (detunized@gmail.com).
 // Licensed under the terms of the MIT license. See LICENCE for details.
 
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using SyntaxConverters;
 
 namespace NUnit2XUnit
 {
@@ -17,10 +17,10 @@ namespace NUnit2XUnit
             MemberAccessExpressionSyntax accessedMember = invocationExpressionSyntax.Expression as MemberAccessExpressionSyntax;
 
             return accessedMember == null ?
-                ConverterFactory(new MethodCallState(invocationExpressionSyntax, accessedMember))
+                ConverterFactory(new MethodCall(invocationExpressionSyntax, accessedMember))
                 : null;
         }
 
-        protected abstract IExpressionSyntaxConverter ConverterFactory(MethodCallState state);
+        protected abstract IExpressionSyntaxConverter ConverterFactory(MethodCall state);
     }
 }

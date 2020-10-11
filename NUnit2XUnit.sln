@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		common.props = common.props
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyntaxConverters", "SyntaxConverters\SyntaxConverters.csproj", "{A7DDF383-5740-4804-8710-512A067BF274}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{FD2A6399-8D7C-477E-90E5-7E205BCC64EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD2A6399-8D7C-477E-90E5-7E205BCC64EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD2A6399-8D7C-477E-90E5-7E205BCC64EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7DDF383-5740-4804-8710-512A067BF274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7DDF383-5740-4804-8710-512A067BF274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7DDF383-5740-4804-8710-512A067BF274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7DDF383-5740-4804-8710-512A067BF274}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

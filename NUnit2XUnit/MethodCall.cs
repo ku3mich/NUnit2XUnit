@@ -1,5 +1,4 @@
 ﻿// Copyright (C) 2020 Serhii Kuzmychov (ku3mich@gmail.com).
-// Copyright (C) 2019 Dmitry Yakimenko (detunized@gmail.com).
 // Licensed under the terms of the MIT license. See LICENCE for details.
 
 using System.Diagnostics.CodeAnalysis;
@@ -8,7 +7,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace NUnit2XUnit
 {
-    public readonly struct MethodCallState
+    public readonly struct MethodCall
     {
         public readonly InvocationExpressionSyntax Node;
         public readonly MemberAccessExpressionSyntax AccessedMember;
@@ -26,7 +25,7 @@ namespace NUnit2XUnit
             return IsMethodCallTo(target) && AccessedMember.Name.Identifier.ValueText == method;
         }
 
-        public MethodCallState(InvocationExpressionSyntax node, MemberAccessExpressionSyntax accessedMember)
+        public MethodCall(InvocationExpressionSyntax node, MemberAccessExpressionSyntax accessedMember)
         {
             Node = node;
             AccessedMember = accessedMember;

@@ -1,5 +1,4 @@
 ﻿// Copyright (C) 2020 Serhii Kuzmychov (ku3mich@gmail.com).
-// Copyright (C) 2019 Dmitry Yakimenko (detunized@gmail.com).
 // Licensed under the terms of the MIT license. See LICENCE for details.
 
 using System.Linq;
@@ -87,7 +86,6 @@ namespace NUnit2XUnit
         {
             return Attribute(IdentifierName("Fact"));
         }
-
 
         // Converts Assert.That(actual, Is.EqualTo(expected)) to Assert.Equal(expected, actual)
         private SyntaxNode TryConvertAssertThatIsEqualTo(InvocationExpressionSyntax node)

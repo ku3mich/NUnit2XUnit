@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2020 Serhii Kuzmychov (ku3mich@gmail.com).
-// Copyright (C) 2019 Dmitry Yakimenko (detunized@gmail.com).
 // Licensed under the terms of the MIT license. See LICENCE for details.
+
+using SyntaxConverters;
 
 namespace NUnit2XUnit
 {
@@ -15,7 +16,7 @@ namespace NUnit2XUnit
             _rewriteTo = rewriteTo;
         }
 
-        protected override IExpressionSyntaxConverter ConverterFactory(MethodCallState state)
+        protected override IExpressionSyntaxConverter ConverterFactory(MethodCall state)
         {
             return state.IsMethodCallTo("Assert", _method) ? new MethodCallNameRewriter(state, "Assert", _rewriteTo) : null;
         }
