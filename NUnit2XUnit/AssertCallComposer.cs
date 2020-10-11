@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2020 Serhii Kuzmychov (ku3mich@gmail.com).
 // Licensed under the terms of the MIT license. See LICENCE for details.
 
+using System.Threading.Tasks;
 using SyntaxConverters;
 
 namespace NUnit2XUnit
@@ -16,9 +17,10 @@ namespace NUnit2XUnit
             RewriteTo = rewriteTo;
         }
 
-        protected override IExpressionSyntaxConverter ConverterFactory(MethodCall state)
+        protected override Task<IExpressionSyntaxConverter> ConverterFactory(MethodCall state)
         {
-            return state.IsMethodCallTo("Assert", Method) ? new MethodCallNameRewriter(state, "Assert", RewriteTo) : null;
+            var s = state.IsMethodCallTo("Assert", Method) ? new MethodCallNameRewriter(state, "Assert", RewriteTo) : null;
+            return Task.FromResult((IExpressionSyntaxConverter)s);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace NUnit2XUnit
                 return;
             }
 
-            void ConvertDir(string dir)
+            static void ConvertDir(string dir)
             {
                 foreach (string file in Directory.GetFiles(dir, "*.cs"))
                 {

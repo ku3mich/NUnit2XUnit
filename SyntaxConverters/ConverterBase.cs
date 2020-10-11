@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2020 Serhii Kuzmychov (ku3mich@gmail.com).
 // Licensed under the terms of the MIT license. See LICENCE for details.
 
+using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace SyntaxConverters
@@ -14,6 +15,6 @@ namespace SyntaxConverters
             State = state;
         }
 
-        public abstract ExpressionSyntax Convert();
+        public abstract Task<ExpressionSyntax> Convert();
     }
 }

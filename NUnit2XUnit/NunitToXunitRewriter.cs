@@ -124,12 +124,10 @@ namespace NUnit2XUnit
 
         private bool IsMethodCall(ExpressionSyntax node, string objekt, string method)
         {
-            InvocationExpressionSyntax invocation = node as InvocationExpressionSyntax;
-            if (invocation == null)
+            if (!(node is InvocationExpressionSyntax invocation))
                 return false;
 
-            MemberAccessExpressionSyntax memberAccess = invocation.Expression as MemberAccessExpressionSyntax;
-            if (memberAccess == null)
+            if (!(invocation.Expression is MemberAccessExpressionSyntax memberAccess))
                 return false;
 
             if ((memberAccess.Expression as IdentifierNameSyntax)?.Identifier.ValueText != objekt)

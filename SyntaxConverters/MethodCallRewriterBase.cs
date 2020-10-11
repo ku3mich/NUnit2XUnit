@@ -1,17 +1,17 @@
 ﻿// Copyright (C) 2020 Serhii Kuzmychov (ku3mich@gmail.com).
 // Licensed under the terms of the MIT license. See LICENCE for details.
 
+using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using SyntaxConverters;
 
-namespace NUnit2XUnit
+namespace SyntaxConverters
 {
     public abstract class MethodCallComposerBase : IConverterComposer
     {
-        public IExpressionSyntaxConverter ComposeConverter(ExpressionSyntax node)
+        public Task<IExpressionSyntaxConverter> ComposeConverter(ExpressionSyntax node)
         {
-            InvocationExpressionSyntax invocationExpressionSyntax = node as InvocationExpressionSyntax;
-            if (invocationExpressionSyntax == null)
+            if (!(node is InvocationExpressionSyntax invocationExpressionSyntax))
                 return null;
 
             MemberAccessExpressionSyntax accessedMember = invocationExpressionSyntax.Expression as MemberAccessExpressionSyntax;
@@ -21,6 +21,6 @@ namespace NUnit2XUnit
                 : null;
         }
 
-        protected abstract IExpressionSyntaxConverter ConverterFactory(MethodCall state);
+        protected abstract Task<IExpressionSyntaxConverter> ConverterFactory(MethodCall state);
     }
 }

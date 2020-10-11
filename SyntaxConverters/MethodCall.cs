@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace NUnit2XUnit
+namespace SyntaxConverters
 {
     public readonly struct MethodCall
     {
