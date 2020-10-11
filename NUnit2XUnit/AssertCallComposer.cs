@@ -7,18 +7,18 @@ namespace NUnit2XUnit
 {
     public class AssertCallComposer : MethodCallComposerBase
     {
-        private readonly string _method;
-        private readonly string _rewriteTo;
+        private readonly string Method;
+        private readonly string RewriteTo;
 
         public AssertCallComposer(string method, string rewriteTo)
         {
-            _method = method;
-            _rewriteTo = rewriteTo;
+            Method = method;
+            RewriteTo = rewriteTo;
         }
 
         protected override IExpressionSyntaxConverter ConverterFactory(MethodCall state)
         {
-            return state.IsMethodCallTo("Assert", _method) ? new MethodCallNameRewriter(state, "Assert", _rewriteTo) : null;
+            return state.IsMethodCallTo("Assert", Method) ? new MethodCallNameRewriter(state, "Assert", RewriteTo) : null;
         }
     }
 }

@@ -12,8 +12,9 @@ namespace NUnit2XUnit
             return state.IsMethodCallTo("Assert") && IsIs(state.AccessedIdentifier) ? new AssertCallRewriter(state, state.AccessedIdentifier.Substring(2)) : null;
         }
 
-        private bool IsIs(string s) =>
-            s != null && s.Length > 2 && s.StartsWith("Is", System.StringComparison.Ordinal);
-        
+        private bool IsIs(string s)
+        {
+            return s != null && s.Length > 2 && s.StartsWith("Is", System.StringComparison.Ordinal);
+        }
     }
 }

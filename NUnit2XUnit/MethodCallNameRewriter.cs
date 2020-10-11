@@ -36,6 +36,9 @@ namespace NUnit2XUnit
             return expression;
         }
 
-        protected virtual ArgumentListSyntax ComposeArguments() => ArgumentList(State.Arguments);
+        protected virtual ArgumentListSyntax ComposeArguments()
+        {
+            return ArgumentList(State.Arguments);
+        }
     }
 }
