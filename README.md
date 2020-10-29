@@ -1,6 +1,6 @@
 # NUnit2XUnit 
 
-[![build](https://github.com/ku3mich/NUnit2XUnit/workflows/build/badge.svg)
+[![build](https://github.com/ku3mich/NUnit2XUnit/workflows/build/badge.svg)]
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=ku3mich_NUnit2XUnit&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=ku3mich_NUnit2XUnit)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=ku3mich_NUnit2XUnit&metric=coverage)](https://sonarcloud.io/dashboard?id=ku3mich_NUnit2XUnit)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ku3mich_NUnit2XUnit&metric=alert_status)](https://sonarcloud.io/dashboard?id=ku3mich_NUnit2XUnit)
