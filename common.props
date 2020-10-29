@@ -1,15 +1,15 @@
 <Project>
-    <PropertyGroup>
-        <RootNamespace>NUnit2XUnit</RootNamespace>
-        <Authors>Serhii Kuzmychov</Authors>
-        <Company>PE Kuzmychov S.V.</Company>
-        <RepositoryUrl>https://github.com/ku3mich/NUnit2XUnit</RepositoryUrl>
-    </PropertyGroup>
+	<PropertyGroup>
+		<RootNamespace>NUnit2XUnit</RootNamespace>
+		<Authors>Serhii Kuzmychov</Authors>
+		<Company />
+		<RepositoryUrl>https://github.com/ku3mich/NUnit2XUnit</RepositoryUrl>
+	</PropertyGroup>
 
-    <ItemGroup>
-        <!--<PackageReference Update="SonarAnalyzer.CSharp" Version="8.13.1.21947">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>-->
-    </ItemGroup>
+	<ItemGroup>
+		<PackageReference Update="SonarAnalyzer.CSharp" Version="8.13.1.21947">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
 </Project>

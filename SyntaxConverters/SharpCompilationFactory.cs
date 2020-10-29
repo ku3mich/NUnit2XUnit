@@ -8,7 +8,7 @@ namespace SyntaxConverters
 {
     public class SharpCompilationFactory
     {
-        readonly string AssemblyName;
+        private readonly string AssemblyName;
 
         protected SharpCompilationFactory() : this("conversion.temp") { }
         public static SharpCompilationFactory Instance { get; } = new SharpCompilationFactory();

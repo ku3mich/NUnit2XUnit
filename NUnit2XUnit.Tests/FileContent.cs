@@ -6,7 +6,7 @@ namespace NUnit2XUnit.Tests
 {
     public class FileContent
     {
-        static readonly string Root = PathResolver.Instance.Resolve("");
+        private static readonly string Root = PathResolver.Instance.Resolve("");
 
         public string FileName { get; set; }
         public string Content { get; set; }

@@ -7,9 +7,9 @@ using SyntaxConverters;
 
 namespace NUnit2XUnit
 {
-    static class Program
+    internal static class Program
     {
-        static void ConvertFile(string inputPath)
+        private static void ConvertFile(string inputPath)
         {
             Console.WriteLine($"* processing: {Path.GetRelativePath(".", inputPath)}");
 
@@ -41,7 +41,7 @@ namespace NUnit2XUnit
             };
         }
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             if (args.Length < 1)
             {
