@@ -6,11 +6,11 @@ namespace NUnit2XUnit
     {
         public static IConverterFactory Factory { get; } = new AssertIsStripper();
 
-        protected override ISyntaxConverter CreateConverter(MethodInvocation state)
+        protected override ISyntaxConverter CreateConverter(MethodInvocation param)
         {
-            var s = state.IsMethodCallTo("Assert") && HasIsPrefix(state.AccessedMethod)
+            var s = param.IsMethodCallTo("Assert") && HasIsPrefix(param.AccessedMethod)
                 // todo: eliminate such long expressions by introducing a builder
-                ? new TriviaWhitespace.Link(new MethodInvocationRewriter(state, state.AccessedMethod.Substring(2)), state.Node)
+                ? new TriviaWhitespace.Link(new MethodInvocationRewriter(param, param.AccessedMethod.Substring(2)), param.Node)
                 : null;
 
             return s;
