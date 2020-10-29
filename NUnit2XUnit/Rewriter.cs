@@ -1,8 +1,8 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using System.Linq;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using SyntaxConverters;
-using System.Linq;
 
 namespace NUnit2XUnit
 {
@@ -39,8 +39,8 @@ namespace NUnit2XUnit
 
         public override SyntaxNode VisitMethodDeclaration(MethodDeclarationSyntax node)
         {
-            var result = node; 
-            
+            var result = node;
+
             var attributes = node
                 .AttributeLists
                 .SelectMany(q => q.Attributes)
@@ -79,7 +79,9 @@ namespace NUnit2XUnit
         {
             var result = base.VisitAttributeList(node) as AttributeListSyntax;
             if (result.Attributes.Count == 0)
+            {
                 return null;
+            }
 
             return result;
         }

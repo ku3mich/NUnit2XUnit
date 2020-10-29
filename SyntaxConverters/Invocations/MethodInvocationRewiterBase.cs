@@ -5,7 +5,9 @@
         protected override ISyntaxConverter CreateConverter(MethodInvocation param)
         {
             if (!RewriteCondition(param))
+            {
                 return null;
+            }
 
             return CreateConverterInternal(param);
         }

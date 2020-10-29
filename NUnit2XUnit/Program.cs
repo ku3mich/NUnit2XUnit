@@ -22,12 +22,14 @@ namespace NUnit2XUnit
                 {
                     var tree = compilation.SyntaxTrees.SingleOrDefault();
                     if (tree == null)
+                    {
                         throw new Exception($"could not parse module");
+                    }
 
                     var rewrited = Rewriter.Instance.VisitRoot(tree);
                     File.WriteAllText(inputPath, rewrited.ToString());
                 }
-                catch (InvalidOperationException ex)
+                catch (InvalidOperationException)
                 {
                     Console.WriteLine("  more than one syntaxTree");
                     throw;

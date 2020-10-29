@@ -6,10 +6,10 @@ namespace SyntaxConverters
     {
         private readonly SyntaxNode Source;
 
-        public TriviaWhitespace(SyntaxNode source) 
+        public TriviaWhitespace(SyntaxNode source)
             => Source = source;
 
-        public ISyntaxConverter CreateConverter(SyntaxNode node) 
+        public ISyntaxConverter CreateConverter(SyntaxNode node)
             => new Converter(Source, node);
 
         public class Converter : ChainConverter
@@ -33,14 +33,14 @@ namespace SyntaxConverters
 
         public class Trivia : ConverterBase<Attach>
         {
-            public override SyntaxNode Convert() 
+            public override SyntaxNode Convert()
                 => State.To.WithTriviaFrom(State.From);
 
             public Trivia(Attach state) : base(state)
             {
             }
 
-            public Trivia(SyntaxNode from, SyntaxNode to) 
+            public Trivia(SyntaxNode from, SyntaxNode to)
                 : this(new Attach(from, to))
             {
             }

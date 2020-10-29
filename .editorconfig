@@ -52,6 +52,10 @@ csharp_style_var_elsewhere = true:silent
 csharp_style_var_for_built_in_types = true:silent
 csharp_style_var_when_type_is_apparent = true:silent
 
+csharp_prefer_braces = false:silent
+csharp_preserve_single_line_blocks = true:silent
+csharp_preserve_single_line_statements = true:silent
+
 csharp_style_expression_bodied_accessors = true:silent
 csharp_style_expression_bodied_constructors = true:silent
 csharp_style_expression_bodied_indexers = true:silent

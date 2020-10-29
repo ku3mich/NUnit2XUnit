@@ -1,6 +1,5 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
 using SyntaxConverters;
-using System.Linq;
 
 namespace NUnit2XUnit
 {
@@ -14,11 +13,13 @@ namespace NUnit2XUnit
             {
                 return null;
             }
-            
-            var categoryName = node.ArgumentList?.Arguments.FirstOrDefault().Expression; 
+
+            var categoryName = node.ArgumentList?.Arguments.FirstOrDefault().Expression;
 
             if (categoryName == null)
+            {
                 return null;
+            }
 
             var result = new TriviaWhitespace.Link(
                 new ConstantConverter(AttributeSyntaxFactory.Category(categoryName)),

@@ -61,19 +61,19 @@ namespace NUnit2XUnit.Tests
                 Console.WriteLine("* expected");
 
                 Console.WriteLine(actual.Replace(' ', '·'));
-                Console.WriteLine(expected.Replace(' ', '·')); 
+                Console.WriteLine(expected.Replace(' ', '·'));
 
-                 // todo: replace buggy plexxdiff
-                 /*var d = new Diff();
-                 var diff = d.Generate(actual.Replace(' ', '·'), expected.Replace(' ', '·'));
-                 var left = diff.IndexOf('|');
-                 Console.WriteLine("* source");
-                 Console.WriteLine(source);
-                 Console.WriteLine($"{"= actual".PadRight(left)}+ = expected");
-                 Console.WriteLine(diff);
-                 Console.WriteLine(actual.Replace(' ', '·'));
-                 Console.WriteLine(expected.Replace(' ', '·'));*/
-                 throw;
+                // todo: replace buggy plexxdiff
+                /*var d = new Diff();
+                var diff = d.Generate(actual.Replace(' ', '·'), expected.Replace(' ', '·'));
+                var left = diff.IndexOf('|');
+                Console.WriteLine("* source");
+                Console.WriteLine(source);
+                Console.WriteLine($"{"= actual".PadRight(left)}+ = expected");
+                Console.WriteLine(diff);
+                Console.WriteLine(actual.Replace(' ', '·'));
+                Console.WriteLine(expected.Replace(' ', '·'));*/
+                throw;
             }
         }
     }
