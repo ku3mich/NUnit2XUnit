@@ -4,7 +4,7 @@ namespace SyntaxConverters
 {
     public abstract class MethodInvocationFactoryBase : IntermediateFactoryBase<InvocationExpressionSyntax, MethodInvocation>
     {
-        protected override MethodInvocation Prepare(InvocationExpressionSyntax param) =>
-            (param.Expression is MemberAccessExpressionSyntax) ? new MethodInvocation(param) : default;
+        protected override MethodInvocation Prepare(InvocationExpressionSyntax node) =>
+            (node.Expression is MemberAccessExpressionSyntax) ? new MethodInvocation(node) : default;
     }
 }

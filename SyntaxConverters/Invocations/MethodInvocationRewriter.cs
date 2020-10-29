@@ -5,13 +5,17 @@ namespace SyntaxConverters
 {
     using static SyntaxFactory;
 
-    public class MethodCallNameRewriter : ConverterBase<MethodInvocation>
+    public class MethodInvocationRewriter : ConverterBase<(MethodInvocation Invocation, string Identifier, string Method)>
     {
         private readonly string Identifier;
         private readonly string Method;
 
-        public MethodCallNameRewriter(MethodInvocation state, string identifier, string method)
-            : base(state)
+        public MethodInvocationRewriter(MethodInvocation invocation, string method) : this(invocation, invocation.AccessedIdentifier, method)
+        {
+        }
+
+        public MethodInvocationRewriter(MethodInvocation invocation, string identifier, string method)
+            : base((invocation, identifier, method))
         {
             Identifier = identifier;
             Method = method;
@@ -24,7 +28,7 @@ namespace SyntaxConverters
                         SyntaxKind.SimpleMemberAccessExpression,
                         IdentifierName(Identifier),
                         IdentifierName(Method)))
-                .WithArgumentList(ArgumentList(State.Arguments));
+                .WithArgumentList(ArgumentList(State.Invocation.Arguments));
 
             return expression;
         }

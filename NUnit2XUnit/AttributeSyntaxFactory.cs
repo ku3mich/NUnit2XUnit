@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using System.Linq;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
@@ -8,12 +9,15 @@ namespace NUnit2XUnit
 
     public static class AttributeSyntaxFactory
     {
-        public static SyntaxNode Create(string identifier) => Attribute(IdentifierName(identifier));
-        public static SyntaxNode Fact() => Create("Fact");
-        public static SyntaxNode Theory() => Create("Theory");
-        public static SyntaxNode Category(ExpressionSyntax category)
-            => Attribute(
-                IdentifierName("Trait"),
+        public static AttributeSyntax Create(string identifier, AttributeArgumentListSyntax args = null) => Attribute(IdentifierName(identifier), args);
+        public static AttributeSyntax Fact() => Create("Fact");
+        public static AttributeSyntax InlineData(AttributeArgumentListSyntax args) => Create("InlineData", args);
+        public static AttributeSyntax Theory() => Create("Theory");
+        public static AttributeListSyntax List(AttributeSyntax item)
+            => SyntaxFactory.AttributeList(SeparatedList(new[] { item }));
+
+        public static AttributeSyntax Category(ExpressionSyntax category)
+            => Create("Trait",
                 AttributeArgumentList(
                         SeparatedList<AttributeArgumentSyntax>(
                             new SyntaxNodeOrToken[] {
