@@ -9,13 +9,17 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=ku3mich_NUnit2XUnit&metric=sqale_index)](https://sonarcloud.io/dashboard?id=ku3mich_NUnit2XUnit)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=ku3mich_NUnit2XUnit&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=ku3mich_NUnit2XUnit)
 
-based on gist by Copyright (C) 2019 Dmitry Yakimenko (detunized@gmail.com).
-Licensed under the terms of the MIT license. See LICENCE for details.
+Based on gist by Copyright (C) 2019 Dmitry Yakimenko (detunized@gmail.com).
 
-### not supported
+https://gist.github.com/detunized/8d548bb3b6808f7f076ed1a5f2c6ddd4
+
+### not supported:
 
 - compile conditions such as #if SYMBOL are processed by default
 - IgnoreAttribute
 - ValuesAttribute for test argumets
 - Sequential for test
-- TearDown
+- TearDown, SetUp, OneTimeSetUp, OneTimeTearDown
+- Property (but Category supported)
+- Constrait assertions(now support only Assert.That(smth, Is.Equal(smth)))
+
