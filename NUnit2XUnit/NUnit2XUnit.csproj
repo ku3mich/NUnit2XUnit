@@ -9,5 +9,6 @@
     <ItemGroup>
         <ProjectReference Include="..\SyntaxConverters\SyntaxConverters.csproj" />
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.7.0" />
+        <PackageReference Include="Utility.CommandLine.Arguments" Version="5.0.0" />
     </ItemGroup>
 </Project>

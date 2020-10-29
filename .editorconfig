@@ -48,3 +48,15 @@ dotnet_naming_rule.private_or_internal_field_should_be_underscored_camelcase.sev
 dotnet_naming_rule.private_or_internal_field_should_be_underscored_camelcase.symbols = private_or_internal_field
 dotnet_naming_rule.private_or_internal_field_should_be_underscored_camelcase.style = pascal_case
 
+csharp_style_var_elsewhere = true:silent
+csharp_style_var_for_built_in_types = true:silent
+csharp_style_var_when_type_is_apparent = true:silent
+
+csharp_style_expression_bodied_accessors = true:silent
+csharp_style_expression_bodied_constructors = true:silent
+csharp_style_expression_bodied_indexers = true:silent
+csharp_style_expression_bodied_lambdas = true:silent
+csharp_style_expression_bodied_local_functions = true:silent
+csharp_style_expression_bodied_methods = true:silent
+csharp_style_expression_bodied_operators = true:silent
+csharp_style_expression_bodied_properties = true:silent

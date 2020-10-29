@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "NUnit2XUnit": {
+      "commandName": "Project",
+      "commandLineArgs": "swiftify.converter\\Projects\\Swiftify.Converter.UnitTests"
+    }
+  }
+}

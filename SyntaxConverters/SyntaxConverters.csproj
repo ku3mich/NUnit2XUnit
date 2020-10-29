@@ -1,10 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    <Import Project="$([MSBuild]::GetPathOfFileAbove(common.props))" />
-    
-    <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.7.0" />
-    </ItemGroup>
+	<Import Project="$([MSBuild]::GetPathOfFileAbove(common.props))" />
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<RootNamespace>SyntaxConverters</RootNamespace>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.7.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Attributes\" />
+	</ItemGroup>
 </Project>

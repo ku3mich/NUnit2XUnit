@@ -1,18 +1,42 @@
-﻿// Copyright (C) 2019 Dmitry Yakimenko (detunized@gmail.com).
-// Licensed under the terms of the MIT license. See LICENCE for details.
-
-using System;
+﻿using System;
 using System.IO;
+using System.Linq;
+using System.Text;
+using Microsoft.CodeAnalysis.Text;
+using SyntaxConverters;
 
 namespace NUnit2XUnit
 {
-
     static class Program
     {
-        static void ConvertFile(string inputPath, string outputPath = null)
+        static void ConvertFile(string inputPath)
         {
-            string module = File.ReadAllText(inputPath);
+            Console.WriteLine($"* processing: {Path.GetRelativePath(".", inputPath)}");
 
+            var module = File.ReadAllText(inputPath);
+            var text = SourceText.From(module, Encoding.UTF8);
+            var compilation = SharpCompilationFactory.Instance.Create(text);
+            try
+            {
+                try
+                {
+                    var tree = compilation.SyntaxTrees.SingleOrDefault();
+                    if (tree == null)
+                        throw new Exception($"could not parse module");
+
+                    var rewrited = Rewriter.Instance.VisitRoot(tree);
+                    File.WriteAllText(inputPath, rewrited.ToString());
+                }
+                catch (InvalidOperationException ex)
+                {
+                    Console.WriteLine("  more than one syntaxTree");
+                    throw;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"  unable to process module due: {ex.Message}");
+            };
         }
 
         static void Main(string[] args)
@@ -25,16 +49,18 @@ namespace NUnit2XUnit
 
             static void ConvertDir(string dir)
             {
-                foreach (string file in Directory.GetFiles(dir, "*.cs"))
+                foreach (var file in Directory.GetFiles(dir, "*.cs"))
                 {
                     ConvertFile(file);
                 }
 
-                foreach (string file in Directory.GetDirectories(dir))
+                foreach (var file in Directory.GetDirectories(dir))
+                {
                     ConvertDir(file);
+                }
             }
 
-            string path = Path.GetFullPath(args[0]);
+            var path = Path.GetFullPath(args[0]);
             ConvertDir(path);
         }
     }

@@ -1,22 +1,37 @@
-﻿// Copyright (C) 2020 Serhii Kuzmychov (ku3mich@gmail.com).
-// Licensed under the terms of the MIT license. See LICENCE for details.
-
-using System.Threading.Tasks;
-using SyntaxConverters;
+﻿using SyntaxConverters;
 
 namespace NUnit2XUnit
 {
-    public class AssertIsStripper : MethodCallComposerBase
+    public class AssertAreStripper : MethodInvocationFactoryBase
     {
-        protected override Task<IExpressionSyntaxConverter> ConverterFactory(MethodCall state)
+        public static IConverterFactory Factory { get; } = new AssertAreStripper();
+
+        protected override ISyntaxConverter CreateConverter(MethodInvocation state)
         {
-            var s = state.IsMethodCallTo("Assert") && IsIs(state.AccessedIdentifier) ? new AssertCallRewriter(state, state.AccessedIdentifier.Substring(2)) : null;
-            return Task.FromResult<IExpressionSyntaxConverter>(s);
+            var s = state.IsMethodCallTo("Assert") && HasIsPrefix(state.AccessedMethod)
+                // todo: eliminate such long expressions by introducing a builder + copypaste
+                ? new TriviaWhitespace.Link(new AssertCallRewriter(state, state.AccessedMethod.Substring(3)), state.Node)
+                : null;
+
+            return s;
         }
 
-        private bool IsIs(string s)
+        private bool HasIsPrefix(string s) => s != null && s.Length > 3 && s.StartsWith("Are", System.StringComparison.Ordinal);
+    }
+    public class AssertIsStripper : MethodInvocationFactoryBase
+    {
+        public static IConverterFactory Factory { get; } = new AssertIsStripper();
+
+        protected override ISyntaxConverter CreateConverter(MethodInvocation state)
         {
-            return s != null && s.Length > 2 && s.StartsWith("Is", System.StringComparison.Ordinal);
+            var s = state.IsMethodCallTo("Assert") && HasIsPrefix(state.AccessedMethod)
+                // todo: eliminate such long expressions by introducing a builder
+                ? new TriviaWhitespace.Link(new AssertCallRewriter(state, state.AccessedMethod.Substring(2)), state.Node)
+                : null;
+
+            return s;
         }
+
+        private bool HasIsPrefix(string s) => s != null && s.Length > 2 && s.StartsWith("Is", System.StringComparison.Ordinal);
     }
 }
