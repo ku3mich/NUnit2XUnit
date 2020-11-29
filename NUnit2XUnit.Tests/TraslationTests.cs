@@ -1,11 +1,12 @@
-﻿using Xunit;
+﻿using Text.Diff;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace NUnit2XUnit.Tests
 {
     public class TraslationTests : TestBase
     {
-        public TraslationTests(ITestOutputHelper console, IDiff diff) : base(console, diff)
+        public TraslationTests(ITestOutputHelper console, ITextDiff diff) : base(console, diff)
         {
         }
 

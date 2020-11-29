@@ -1,3 +1,4 @@
+using Text.Diff;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -5,7 +6,7 @@ namespace NUnit2XUnit.Tests
 {
     public class PartialTests : TestBase
     {
-        public PartialTests(ITestOutputHelper console, IDiff diff) : base(console, diff)
+        public PartialTests(ITestOutputHelper console, ITextDiff diff) : base(console, diff)
         {
         }
 

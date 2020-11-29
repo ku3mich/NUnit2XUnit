@@ -3,6 +3,7 @@ using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Text;
 using SyntaxConverters;
+using Text.Diff;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -11,9 +12,9 @@ namespace NUnit2XUnit.Tests
     public abstract class TestBase
     {
         protected readonly ITestOutputHelper Console;
-        private readonly IDiff Diff;
+        private readonly ITextDiff Diff;
 
-        protected TestBase(ITestOutputHelper console, IDiff diff)
+        protected TestBase(ITestOutputHelper console, ITextDiff diff)
         {
             Console = console;
             Diff = diff;
@@ -57,22 +58,13 @@ namespace NUnit2XUnit.Tests
             }
             catch
             {
-                Console.WriteLine("* actual");
-                Console.WriteLine("* expected");
-
-                Console.WriteLine(actual.Replace(' ', '·'));
-                Console.WriteLine(expected.Replace(' ', '·'));
-
-                // todo: replace buggy plexxdiff
-                /*var d = new Diff();
-                var diff = d.Generate(actual.Replace(' ', '·'), expected.Replace(' ', '·'));
+                var diff = Diff.Generate(actual.Replace(' ', '·'), expected.Replace(' ', '·'));
                 var left = diff.IndexOf('|');
                 Console.WriteLine("* source");
                 Console.WriteLine(source);
                 Console.WriteLine($"{"= actual".PadRight(left)}+ = expected");
                 Console.WriteLine(diff);
-                Console.WriteLine(actual.Replace(' ', '·'));
-                Console.WriteLine(expected.Replace(' ', '·'));*/
+
                 throw;
             }
         }

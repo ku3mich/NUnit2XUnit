@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Xunit;
+using Text.Diff;
 using XUnit.Extensions.Essentials;
 
 namespace NUnit2XUnit.Tests
@@ -8,6 +8,6 @@ namespace NUnit2XUnit.Tests
     {
         public void ConfigureServices(IServiceCollection services) => services
             .AddXUnitEssentials()
-            .AddTransient<IDiff, Diff>();
+            .AddSingleton<ITextDiff, TextDiff>();
     }
 }
