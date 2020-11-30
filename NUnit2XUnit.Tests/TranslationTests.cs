@@ -4,9 +4,9 @@ using Xunit.Abstractions;
 
 namespace NUnit2XUnit.Tests
 {
-    public class TraslationTests : TestBase
+    public class TranslationTests : TestBase
     {
-        public TraslationTests(ITestOutputHelper console, ITextDiff diff) : base(console, diff)
+        public TranslationTests(ITestOutputHelper console, ITextDiff diff) : base(console, diff)
         {
         }
 
